@@ -58,7 +58,7 @@ class TestApp:
             response = app.test_client().get('/restaurants/0')
             assert response.status_code == 404
             assert response.content_type == 'application/json'
-            assert response.json.get('error')
+            assert response.json.get('error') == 'Restaurant not found'
             assert response.status_code == 404
 
     def test_deletes_restaurant_by_id(self):
@@ -140,7 +140,7 @@ class TestApp:
                 }
             )
 
-            assert response.status_code == 201
+            assert response.status_code == 200
             assert response.content_type == 'application/json'
             response = response.json
             assert response['price'] == 3
