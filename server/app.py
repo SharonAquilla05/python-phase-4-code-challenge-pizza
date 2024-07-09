@@ -83,7 +83,7 @@ def pizza():
 
 @app.route("/restaurant_pizzas", methods=["POST"])
 def add_pizza():
-    data = request.get_json
+    data = request.get_json()
 
     price = data.get("price")
     pizza_id = data.get("pizza_id")
